@@ -1,28 +1,32 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
-const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
+const [githubOwner = '', githubRepository = ''] = (process.env.GITHUB_REPOSITORY ?? '').split('/');
+const githubPagesUrl = githubRepository === `${githubOwner}.github.io`
+  ? `https://${githubOwner}.github.io`
+  : `https://${githubOwner}.github.io/${githubRepository}`;
+const siteUrl = process.env.GITHUB_PAGES === 'true' && githubOwner && githubRepository
+  ? githubPagesUrl
+  : 'https://snap-to-fix.oai-x-carahs-7465.chatgpt.site';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://snap-to-fix.oai-x-carahs-7465.chatgpt.site'),
+  metadataBase: new URL(siteUrl),
   title: 'Snap-to-Fix — See the problem. Know the fix.',
   description: 'Identify appliance errors, warning lights, and broken parts from a photo. Get clear, safety-first troubleshooting in seconds.',
   alternates: {
-    canonical: '/',
+    canonical: siteUrl,
   },
   icons: {
-    icon: [{ url: '/favicon.png', type: 'image/png' }],
+    icon: [{ url: `${siteUrl}/favicon.png`, type: 'image/png' }],
   },
   openGraph: {
     type: 'website',
-    url: 'https://snap-to-fix.oai-x-carahs-7465.chatgpt.site',
+    url: siteUrl,
     siteName: 'Snap-to-Fix',
     title: 'Snap-to-Fix — See the problem. Know the fix.',
     description: 'Photo-powered diagnostics for everyday repairs, with clear steps and safety warnings.',
     images: [{
-      url: 'https://snap-to-fix.oai-x-carahs-7465.chatgpt.site/og.png',
+      url: `${siteUrl}/og.png`,
       width: 1200,
       height: 630,
       alt: 'Snap-to-Fix — See the problem. Know the fix.',
@@ -32,14 +36,14 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Snap-to-Fix — See the problem. Know the fix.',
     description: 'Photo-powered diagnostics for everyday repairs, with clear steps and safety warnings.',
-    images: ['https://snap-to-fix.oai-x-carahs-7465.chatgpt.site/og.png'],
+    images: [`${siteUrl}/og.png`],
   },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
