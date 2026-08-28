@@ -173,6 +173,7 @@ export default function Home() {
         </a>
         <nav className="nav-links" aria-label="Main navigation">
           <a href="#how-it-works">How it works</a>
+          <a href="#watch-demo">Watch demo</a>
           <a href="#use-cases">What it solves</a>
           <a href="#safety">Safety first</a>
         </nav>
@@ -190,7 +191,7 @@ export default function Home() {
           </p>
           <div className="hero-actions">
             <a className="primary-link" href="#diagnose">Diagnose something <span>↓</span></a>
-            <a className="text-link" href="#how-it-works">See how it works <span>→</span></a>
+            <a className="text-link" href="#watch-demo">Watch the walkthrough <span>→</span></a>
           </div>
           <div className="trust-row">
             <div className="trust-proof"><strong>30 sec</strong><span>to first answer</span></div>
@@ -356,6 +357,46 @@ export default function Home() {
           <h2>From “what’s that?”<br />to “I’ve got this.”</h2>
         </div>
         <p>Snap-to-Fix turns confusing hardware problems into plain-English answers—so you can make the next move with confidence.</p>
+      </section>
+
+      <section className="demo-video-section" id="watch-demo" aria-labelledby="watch-demo-title">
+        <div className="demo-video-head">
+          <div>
+            <span className="section-number">WATCH THE WALKTHROUGH</span>
+            <h2 id="watch-demo-title">See Snap-to-Fix<br />in 48 seconds.</h2>
+            <p id="watch-demo-summary">From a confusing warning to a clear, safety-led next step—shown from start to finish.</p>
+          </div>
+          <div className="demo-video-actions">
+            <span>1920 × 1080 · CAPTIONS INCLUDED</span>
+            <a href="./snap-to-fix-demo.mp4?v=2" download="Snap-to-Fix-Demo-1080p-v2.mp4">Download HD demo <b>↓</b></a>
+          </div>
+        </div>
+
+        <div className="demo-video-frame">
+          <video
+            controls
+            playsInline
+            preload="metadata"
+            poster="./snap-to-fix-demo-poster.png?v=2"
+            aria-labelledby="watch-demo-title"
+            aria-describedby="watch-demo-summary"
+          >
+            <source src="./snap-to-fix-demo.mp4?v=2" type="video/mp4" />
+            <p>Your browser cannot play this video. <a href="./snap-to-fix-demo.mp4?v=2">Download it instead.</a></p>
+          </video>
+          <div className="demo-video-meta" aria-hidden="true">
+            <span>01 · SNAP THE CLUE</span><i /><span>02 · UNDERSTAND IT</span><i /><span>03 · TAKE THE SAFE STEP</span>
+          </div>
+        </div>
+
+        <details className="demo-transcript">
+          <summary>Read the video transcript <span>＋</span></summary>
+          <div>
+            <p>When an appliance flashes a code, a dashboard light appears, or a part cracks, the real problem is uncertainty. What is it? Is it safe? And what should you do next?</p>
+            <p>Snap-to-Fix turns that moment into a clear path forward. Take a photo, or choose a visible clue. The app identifies the device, explains the likely issue in plain English, and puts the safety warning first.</p>
+            <p>Then it gives you simple checks, the tools you’ll need, and step-by-step guidance. If the risk is too high, it tells you to stop and call a professional. Less guessing. Faster decisions. Safer repairs.</p>
+          </div>
+        </details>
       </section>
 
       <section className="steps-section" aria-label="How Snap-to-Fix works">
